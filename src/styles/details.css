@@ -1,0 +1,423 @@
+/* ===================================================
+   CineScope Movie Details Page Styles
+   =================================================== */
+
+.details-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+/* ===================================================
+   Backdrop Hero Header
+   =================================================== */
+
+.details-hero {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  margin-top: -72px; /* Pull behind navbar */
+  display: flex;
+  align-items: flex-end;
+  padding: 100px 24px 40px;
+  background-color: #07090e;
+}
+
+.details-backdrop-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: brightness(0.5) blur(2px);
+  z-index: 1;
+}
+
+.details-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 9, 14, 0.4) 0%,
+    rgba(7, 9, 14, 0.8) 70%,
+    var(--bg-darkest) 100%
+  );
+  z-index: 2;
+}
+
+.details-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1360px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  gap: 36px;
+  align-items: flex-end;
+}
+
+/* Poster Card */
+.details-poster-box {
+  width: 260px;
+  flex-shrink: 0;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #090c15;
+}
+
+.details-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info Details */
+.details-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+
+.details-badge-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.details-title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin: 0;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+}
+
+.details-metadata-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.details-metadata-row span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.details-rating-chip {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--accent-gold-light);
+  font-weight: 800;
+  font-size: 1rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-md);
+}
+
+.details-rating-chip .star-icon {
+  color: var(--accent-gold);
+}
+
+/* Action Buttons */
+.details-actions-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.btn-watchlist-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.btn-watchlist-toggle.in-list {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.btn-watchlist-toggle.in-list:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* ===================================================
+   Details Content Body
+   =================================================== */
+
+.details-body-wrapper {
+  max-width: 1360px;
+  width: 100%;
+  margin: 40px auto 0;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.details-overview-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+
+.details-overview-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  max-width: 900px;
+}
+
+/* Cast Section */
+.details-cast-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cast-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.cast-member-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.cast-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.cast-role {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* ===================================================
+   Reviews Section
+   =================================================== */
+
+.details-reviews-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 36px;
+}
+
+.reviews-list-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.review-author-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-avatar-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-gold));
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.review-author-name {
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.review-post-date {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.review-card-score {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: var(--accent-gold-light);
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.review-card-comment {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Review Submission Form */
+.review-form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  height: fit-content;
+}
+
+.review-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.review-form-group label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.review-form-input,
+.review-form-textarea {
+  background: rgba(10, 13, 20, 0.8);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.review-form-input:focus,
+.review-form-textarea:focus {
+  border-color: var(--accent-red);
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+.review-slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-range-slider {
+  accent-color: var(--accent-red);
+  cursor: pointer;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.alert-box {
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.alert-box.success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.alert-box.error {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+/* ===================================================
+   Responsive Breakpoints
+   =================================================== */
+
+@media (max-width: 992px) {
+  .details-hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .details-main-info {
+    align-items: center;
+    text-align: center;
+  }
+  .details-poster-box {
+    width: 200px;
+  }
+  .details-title {
+    font-size: 2.3rem;
+  }
+  .details-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .details-title {
+    font-size: 1.8rem;
+  }
+  .details-poster-box {
+    width: 160px;
+  }
+  .cast-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

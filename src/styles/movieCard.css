@@ -1,0 +1,216 @@
+/* ===================================================
+   CineScope MovieCard Component Styles
+   =================================================== */
+
+.cinescope-movie-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+              border-color 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  user-select: none;
+}
+
+.cinescope-movie-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(229, 9, 20, 0.35);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 9, 20, 0.2);
+}
+
+.cinescope-movie-card:focus-visible {
+  outline: 2px solid var(--accent-red);
+  outline-offset: 3px;
+}
+
+/* ===================================================
+   Poster Container
+   =================================================== */
+
+.card-poster-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: #0b0e17;
+}
+
+.card-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cinescope-movie-card:hover .card-poster-img {
+  transform: scale(1.06);
+}
+
+.card-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 9, 14, 0.1) 0%,
+    rgba(7, 9, 14, 0.3) 65%,
+    rgba(10, 13, 20, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+/* ===================================================
+   TOP RATED BADGE (Conditional Rendering: rating > 8)
+   =================================================== */
+
+.top-rated-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #07090e;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.top-rated-badge::before {
+  content: '★';
+  font-size: 0.8rem;
+}
+
+/* Floating Rating Pill */
+.card-rating-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(10, 13, 20, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+}
+
+.card-rating-tag.tag-high {
+  border-color: rgba(245, 158, 11, 0.5);
+  color: #fbbf24;
+}
+
+.card-rating-tag.tag-high .star-icon {
+  color: #f59e0b;
+}
+
+.card-rating-tag.tag-normal .star-icon {
+  color: var(--text-secondary);
+}
+
+/* Hover Action Button */
+.card-hover-actions {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 9, 14, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 4;
+}
+
+.cinescope-movie-card:hover .card-hover-actions {
+  opacity: 1;
+}
+
+.view-details-btn {
+  background: var(--accent-red);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 8px 18px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 18px rgba(229, 9, 20, 0.5);
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.cinescope-movie-card:hover .view-details-btn {
+  transform: translateY(0);
+}
+
+.view-details-btn:hover {
+  background: #ff1e27;
+  transform: scale(1.05);
+}
+
+/* ===================================================
+   Card Info Details
+   =================================================== */
+
+.card-content {
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.74rem;
+}
+
+.card-genre {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.card-year {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.cinescope-movie-card:hover .card-title {
+  color: #fff;
+}

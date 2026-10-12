@@ -1,0 +1,318 @@
+/* ===================================================
+   CineScope Home Page & Hero Banner Styles
+   =================================================== */
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ===================================================
+   Hero Banner
+   =================================================== */
+
+.cinescope-hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  margin-top: -72px; /* Pull behind transparent navbar */
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.hero-backdrop-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: #07090e;
+}
+
+.hero-backdrop-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  filter: brightness(0.75);
+}
+
+.hero-overlay-gradient-left {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(7, 9, 14, 0.98) 0%,
+    rgba(7, 9, 14, 0.85) 35%,
+    rgba(7, 9, 14, 0.4) 65%,
+    rgba(7, 9, 14, 0.2) 100%
+  );
+}
+
+.hero-overlay-gradient-bottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 55%,
+    rgba(7, 9, 14, 0.85) 85%,
+    var(--bg-darkest) 100%
+  );
+}
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.hero-content-inner {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.hero-badges-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-meta-tag {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.hero-rating-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hero-star {
+  color: var(--accent-gold);
+  font-size: 1.3rem;
+}
+
+.hero-rating-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent-gold-light);
+}
+
+.hero-rating-max {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.hero-critic-tag {
+  margin-left: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.hero-overview {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-buttons-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* ===================================================
+   Movie Row / Carousel Sections
+   =================================================== */
+
+.home-sections-wrapper {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px 24px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.cinescope-movie-row-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.row-icon {
+  font-size: 1.3rem;
+}
+
+.row-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.row-nav-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: var(--transition);
+}
+
+.row-nav-btn:hover {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  transform: scale(1.08);
+}
+
+.movie-row-scroll-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 4px 20px;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.movie-row-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+.movie-row-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.movie-row-item {
+  flex: 0 0 220px;
+  max-width: 220px;
+}
+
+/* ===================================================
+   Browse by Genre Section
+   =================================================== */
+
+.genres-showcase-section {
+  background: rgba(18, 24, 38, 0.5);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  backdrop-filter: blur(10px);
+}
+
+.genres-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.genre-chip-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  text-align: center;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.genre-chip-card:hover {
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(245, 158, 11, 0.2));
+  border-color: var(--accent-red);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+.genre-chip-icon {
+  font-size: 1.5rem;
+}
+
+/* ===================================================
+   Responsive Media Queries
+   =================================================== */
+
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .movie-row-item {
+    flex: 0 0 190px;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cinescope-hero-banner {
+    min-height: 70vh;
+    padding-top: 90px;
+  }
+  .hero-title {
+    font-size: 2.1rem;
+  }
+  .hero-overview {
+    font-size: 0.92rem;
+  }
+  .hero-buttons-row .btn-lg {
+    padding: 10px 18px;
+    font-size: 0.92rem;
+  }
+  .movie-row-item {
+    flex: 0 0 160px;
+    max-width: 160px;
+  }
+  .genres-chips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
